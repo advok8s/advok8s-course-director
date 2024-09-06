@@ -1,0 +1,38 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - course-director.advok8s.io
+  resources:
+  - trainingcourses
+  - workshopenvironments
+  - workshopsessions
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - course-director.advok8s.io
+  resources:
+  - trainingcourses/finalizers
+  - workshopenvironments/finalizers
+  - workshopsessions/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - course-director.advok8s.io
+  resources:
+  - trainingcourses/status
+  - workshopenvironments/status
+  - workshopsessions/status
+  verbs:
+  - get
+  - patch
+  - update

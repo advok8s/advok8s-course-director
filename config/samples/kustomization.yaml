@@ -1,0 +1,7 @@
+## Append samples of your project ##
+resources:
+- course-director_v1alpha1_trainingcourse.yaml
+- course-director_v1alpha1_workshopenvironment.yaml
+- course-director_v1alpha1_workshopsession.yaml
+- course-director_v1alpha1_workshop.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

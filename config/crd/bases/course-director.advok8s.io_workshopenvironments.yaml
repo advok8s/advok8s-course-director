@@ -40,10 +40,18 @@ spec:
           spec:
             description: WorkshopEnvironmentSpec defines the desired state of WorkshopEnvironment
             properties:
-              foo:
-                description: Foo is an example field of WorkshopEnvironment. Edit
-                  workshopenvironment_types.go to remove/update
-                type: string
+              workshop:
+                description: Reference to the Workshop resource that this environment
+                  is for.
+                properties:
+                  name:
+                    description: Name is the name of the Workshop resource.
+                    type: string
+                required:
+                - name
+                type: object
+            required:
+            - workshop
             type: object
           status:
             description: WorkshopEnvironmentStatus defines the observed state of WorkshopEnvironment

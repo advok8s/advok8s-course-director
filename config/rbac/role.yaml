@@ -7,7 +7,6 @@ rules:
 - apiGroups:
   - course-director.advok8s.io
   resources:
-  - trainingcourses
   - workshopenvironments
   - workshopsessions
   verbs:
@@ -21,7 +20,6 @@ rules:
 - apiGroups:
   - course-director.advok8s.io
   resources:
-  - trainingcourses/finalizers
   - workshopenvironments/finalizers
   - workshopsessions/finalizers
   verbs:
@@ -29,7 +27,6 @@ rules:
 - apiGroups:
   - course-director.advok8s.io
   resources:
-  - trainingcourses/status
   - workshopenvironments/status
   - workshopsessions/status
   verbs:

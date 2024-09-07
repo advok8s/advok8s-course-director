@@ -23,13 +23,19 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
+// WorkshopRef is a reference to a Workshop resource.
+type WorkshopRef struct {
+	// Name is the name of the Workshop resource.
+	Name string `json:"name"`
+}
+
 // WorkshopEnvironmentSpec defines the desired state of WorkshopEnvironment
 type WorkshopEnvironmentSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of WorkshopEnvironment. Edit workshopenvironment_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// Reference to the Workshop resource that this environment is for.
+	Workshop WorkshopRef `json:"workshop"`
 }
 
 // WorkshopEnvironmentStatus defines the observed state of WorkshopEnvironment

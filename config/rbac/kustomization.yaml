@@ -28,6 +28,3 @@ resources:
 - workshopsession_viewer_role.yaml
 - workshopenvironment_editor_role.yaml
 - workshopenvironment_viewer_role.yaml
-- trainingcourse_editor_role.yaml
-- trainingcourse_viewer_role.yaml
-

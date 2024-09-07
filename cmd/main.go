@@ -144,13 +144,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controller.TrainingCourseReconciler{
-		Client: mgr.GetClient(),
-		Scheme: mgr.GetScheme(),
-	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "TrainingCourse")
-		os.Exit(1)
-	}
 	if err = (&controller.WorkshopEnvironmentReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),

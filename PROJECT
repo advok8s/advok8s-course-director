@@ -31,4 +31,12 @@ resources:
   kind: Workshop
   path: github.com/advok8s/advok8s-course-director/api/v1alpha1
   version: v1alpha1
+- api:
+    crdVersion: v1
+  controller: true
+  domain: advok8s.io
+  group: course-director
+  kind: WorkshopInstance
+  path: github.com/advok8s/advok8s-course-director/api/v1alpha1
+  version: v1alpha1
 version: "3"

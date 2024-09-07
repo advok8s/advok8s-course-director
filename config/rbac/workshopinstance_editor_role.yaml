@@ -1,15 +1,16 @@
----
+# permissions for end users to edit workshopinstances.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: manager-role
+  labels:
+    app.kubernetes.io/name: advok8s-course-director
+    app.kubernetes.io/managed-by: kustomize
+  name: workshopinstance-editor-role
 rules:
 - apiGroups:
   - course-director.advok8s.io
   resources:
-  - workshopenvironments
   - workshopinstances
-  - workshopsessions
   verbs:
   - create
   - delete
@@ -21,18 +22,6 @@ rules:
 - apiGroups:
   - course-director.advok8s.io
   resources:
-  - workshopenvironments/finalizers
-  - workshopinstances/finalizers
-  - workshopsessions/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - course-director.advok8s.io
-  resources:
-  - workshopenvironments/status
   - workshopinstances/status
-  - workshopsessions/status
   verbs:
   - get
-  - patch
-  - update

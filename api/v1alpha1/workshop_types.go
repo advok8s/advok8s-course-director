@@ -23,13 +23,60 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
+// DifficultyLevel is the difficulty level of the workshop
+// +kubebuilder:validation:Enum=beginner;intermediate;advanced;extreme
+type DifficultyLevel string
+
+const (
+	Beginner     DifficultyLevel = "beginner"
+	Intermediate DifficultyLevel = "intermediate"
+	Advanced     DifficultyLevel = "advanced"
+	Extreme      DifficultyLevel = "extreme"
+)
+
+// WorkshopLabel is a named label to apply to the workshop
+type WorkshopLabel struct {
+	// Name is the name of the label
+	Name string `json:"name"`
+
+	// Value is the value of the label
+	Value string `json:"value"`
+}
+
 // WorkshopSpec defines the desired state of Workshop
 type WorkshopSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Workshop. Edit workshop_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// Title is the title of the workshop
+	Title string `json:"title"`
+
+	// Description is a description of the workshop
+	Description string `json:"description"`
+
+	// Vendor is the name of the vendor providing the workshop
+	Vendor string `json:"vendor,omitempty"`
+
+	// Authors is a list of authors of the workshop
+	Authors []string `json:"authors,omitempty"`
+
+	// Version is the version of the workshop
+	Version string `json:"version,omitempty"`
+
+	// Difficulty is the difficulty level of the workshop
+	Difficulty DifficultyLevel `json:"difficulty,omitempty"`
+
+	// Duration is the recommended duration of the workshop
+	Duration metav1.Duration `json:"duration,omitempty"`
+
+	// Labels is a list of labels to apply to the workshop
+	Labels []WorkshopLabel `json:"labels,omitempty"`
+
+	// Logo is the URL to the logo for the workshop
+	Logo string `json:"logo,omitempty"`
+
+	// Url is the URL to the workshop repository or docs
+	Url string `json:"url,omitempty"`
 }
 
 // WorkshopStatus defines the observed state of Workshop

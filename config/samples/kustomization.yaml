@@ -3,4 +3,5 @@ resources:
 - course-director_v1alpha1_workshopenvironment.yaml
 - course-director_v1alpha1_workshopsession.yaml
 - course-director_v1alpha1_workshop.yaml
+- course-director_v1alpha1_workshopinstance.yaml
 # +kubebuilder:scaffold:manifestskustomizesamples

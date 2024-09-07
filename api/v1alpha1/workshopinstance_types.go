@@ -23,17 +23,28 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// WorkshopEnvironmentSpec defines the desired state of WorkshopEnvironment
-type WorkshopEnvironmentSpec struct {
+// WorkshopRef is a reference to a Workshop resource.
+type WorkshopRef struct {
+	// Name is the name of the Workshop resource.
+	Name string `json:"name"`
+}
+
+// WorkshopInstanceSpec defines the desired state of WorkshopInstance
+type WorkshopInstanceSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Workshop specification
-	WorkshopSpec WorkshopSpec `json:"workshop"`
+	// WorkshopRef is a reference to the Workshop resource.
+	WorkshopRef WorkshopRef `json:"workshop"`
+
+	// AutoRefresh indicates whether the associated workshop environment should
+	// be automatically refreshed when the workshop definition is updated.
+	// Defaults to false.
+	AutoRefresh bool `json:"autoRefresh,omitempty"`
 }
 
-// WorkshopEnvironmentStatus defines the observed state of WorkshopEnvironment
-type WorkshopEnvironmentStatus struct {
+// WorkshopInstanceStatus defines the observed state of WorkshopInstance
+type WorkshopInstanceStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
@@ -42,24 +53,24 @@ type WorkshopEnvironmentStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster
 
-// WorkshopEnvironment is the Schema for the workshopenvironments API
-type WorkshopEnvironment struct {
+// WorkshopInstance is the Schema for the workshopinstances API
+type WorkshopInstance struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   WorkshopEnvironmentSpec   `json:"spec,omitempty"`
-	Status WorkshopEnvironmentStatus `json:"status,omitempty"`
+	Spec   WorkshopInstanceSpec   `json:"spec,omitempty"`
+	Status WorkshopInstanceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// WorkshopEnvironmentList contains a list of WorkshopEnvironment
-type WorkshopEnvironmentList struct {
+// WorkshopInstanceList contains a list of WorkshopInstance
+type WorkshopInstanceList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []WorkshopEnvironment `json:"items"`
+	Items           []WorkshopInstance `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&WorkshopEnvironment{}, &WorkshopEnvironmentList{})
+	SchemeBuilder.Register(&WorkshopInstance{}, &WorkshopInstanceList{})
 }

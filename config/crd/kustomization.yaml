@@ -5,6 +5,7 @@ resources:
 - bases/course-director.advok8s.io_workshopenvironments.yaml
 - bases/course-director.advok8s.io_workshopsessions.yaml
 - bases/course-director.advok8s.io_workshops.yaml
+- bases/course-director.advok8s.io_workshopinstances.yaml
 # +kubebuilder:scaffold:crdkustomizeresource
 
 patches:
@@ -17,6 +18,7 @@ patches:
 #- path: patches/cainjection_in_workshopenvironments.yaml
 #- path: patches/cainjection_in_workshopsessions.yaml
 #- path: patches/cainjection_in_workshops.yaml
+#- path: patches/cainjection_in_workshopinstances.yaml
 # +kubebuilder:scaffold:crdkustomizecainjectionpatch
 
 # [WEBHOOK] To enable webhook, uncomment the following section

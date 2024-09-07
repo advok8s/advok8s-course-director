@@ -39,10 +39,59 @@ spec:
           spec:
             description: WorkshopSpec defines the desired state of Workshop
             properties:
-              foo:
-                description: Foo is an example field of Workshop. Edit workshop_types.go
-                  to remove/update
+              authors:
+                description: Authors is a list of authors of the workshop
+                items:
+                  type: string
+                type: array
+              description:
+                description: Description is a description of the workshop
                 type: string
+              difficulty:
+                description: Difficulty is the difficulty level of the workshop
+                enum:
+                - beginner
+                - intermediate
+                - advanced
+                - extreme
+                type: string
+              duration:
+                description: Duration is the recommended duration of the workshop
+                type: string
+              labels:
+                description: Labels is a list of labels to apply to the workshop
+                items:
+                  description: WorkshopLabel is a named label to apply to the workshop
+                  properties:
+                    name:
+                      description: Name is the name of the label
+                      type: string
+                    value:
+                      description: Value is the value of the label
+                      type: string
+                  required:
+                  - name
+                  - value
+                  type: object
+                type: array
+              logo:
+                description: Logo is the URL to the logo for the workshop
+                type: string
+              title:
+                description: Title is the title of the workshop
+                type: string
+              url:
+                description: Url is the URL to the workshop repository or docs
+                type: string
+              vendor:
+                description: Vendor is the name of the vendor providing the workshop
+                type: string
+              version:
+                description: Version is the version of the workshop
+                type: string
+            required:
+            - description
+            - title
             type: object
           status:
             description: WorkshopStatus defines the observed state of Workshop
